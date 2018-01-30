@@ -1,0 +1,136 @@
+ 2018-01-30 09:04:33 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (devops) platzi
+version: (1.0.0) 
+description: Ejemplo
+entry point: (index.js) server.js
+test command: 
+git repository: 
+keywords: 
+author: noel vaca moreno
+license: (ISC) 
+About to write to /home/noel/Documentos/platzi/devops/package.json:
+
+{
+  "name": "platzi",
+  "version": "1.0.0",
+  "description": "Ejemplo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "noel vaca moreno",
+  "license": "ISC"
+}
+
+
+Is this ok? (yes) yes
+
+ 2018-01-30 09:05:21 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → npm install express mocha supertest --save
+npm WARN platzi@1.0.0 No repository field.
+
++ supertest@3.0.0
++ mocha@5.0.0
++ express@4.16.2
+updated 3 packages in 4.731s
+
+ 2018-01-30 09:20:34 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → cat package.json 
+{
+  "name": "platzi",
+  "version": "1.0.0",
+  "description": "Ejemplo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "noel vaca moreno",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mocha": "^5.0.0",
+    "supertest": "^3.0.0"
+  }
+}
+
+ 2018-01-30 09:21:32 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → mkdir test public
+
+ 2018-01-30 09:22:09 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → touch app.js server.js
+
+ 2018-01-30 09:22:20 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → touch .dockerignore Dockerfile
+
+ 2018-01-30 09:32:09 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → touch public/index.html
+
+ 2018-01-30 09:22:42 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → vim app.js 
+
+ 2018-01-30 09:38:06 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → vim server.js 
+
+ 2018-01-30 09:43:07 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → vim public/index.html 
+
+ 2018-01-30 10:03:45 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → node server.js 
+Im runnuing
+
+ 2018-01-30 10:06:09 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → touch test/app.test.js
+
+ 2018-01-30 10:06:45 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → vim test/app.test.js
+
+
+ 2018-01-30 10:49:36 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → sudo npm install -g mocha
+/usr/bin/mocha -> /usr/lib/node_modules/mocha/bin/mocha
+/usr/bin/_mocha -> /usr/lib/node_modules/mocha/bin/_mocha
++ mocha@5.0.0
+added 24 packages in 2.833s
+
+ 2018-01-30 10:50:01 ⌚  noel-pc in ~/Documentos/platzi/devops
+○ → mocha
+
+
+  app
+    ✓ sould serve html on index
+
+
+  1 passing (28ms)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
