@@ -114,6 +114,103 @@ added 24 packages in 2.833s
   1 passing (28ms)
 
 
+**********************************************************************************************
+
+Docker
+noel@noel-pc:~/Documentos/platzi/devops$ vim .dockerignore 
+noel@noel-pc:~/Documentos/platzi/devops$ cat .dockerignore 
+node_modules
+.git
+noel@noel-pc:~/Documentos/platzi/devops$ vim Dockerfile 
+noel@noel-pc:~/Documentos/platzi/devops$ cat Dockerfile 
+FROM node:6.9
+EXPOSE 3000
+
+WORKDIR /app
+
+ADD package.json /app/
+RUN npm install -g mocha && npm install
+
+ADD . /app
+
+CMD ["node", "server"]
+noel@noel-pc:~/Documentos/platzi/devops$ docker build -t platzi .
+noel@noel-pc:~/Documentos/platzi/devops$ docker run -p 3000:3000 platzi
+
+noel@noel-pc:~/Documentos/platzi/devops$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
+41629d540906        platzi              "node server"       2 minutes ago       Up 2 minutes        0.0.0.0:3000->3000/tcp   gallant_edison
+noel@noel-pc:~/Documentos/platzi/devops$ docker kill 41629d540906
+41629d540906
+noel@noel-pc:~/Documentos/platzi/devops$ docker run -d -p 3000:3000 platzi
+32edbde2e06c32294ee4c28af857a64b9f7df21b74805de5168e190639d6f6cc
+noel@noel-pc:~/Documentos/platzi/devops$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
+32edbde2e06c        platzi              "node server"       35 seconds ago      Up 34 seconds       0.0.0.0:3000->3000/tcp   sleepy_visvesvaraya
+noel@noel-pc:~/Documentos/platzi/devops$ docker kill 32edbde2e06c
+32edbde2e06c
+noel@noel-pc:~/Documentos/platzi/devops$ docker run platzi mocha
+
+
+  app
+    ✓ sould serve html on index
+
+
+  1 passing (39ms)
+
+noel@noel-pc:~/Documentos/platzi/devops$ 
+
+noel@noel-pc:~/Documentos/platzi/devops$ vim package.json 
+noel@noel-pc:~/Documentos/platzi/devops$ cat package.json 
+{
+  "name": "platzi",
+  "version": "1.0.0",
+  "description": "Ejemplo",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "author": "noel vaca moreno",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "supertest": "^3.0.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "expect": "^22.1.0",
+    "mocha": "^5.0.0"
+  }
+}
+noel@noel-pc:~/Documentos/platzi/devops$ docker build -t platzi .
+noel@noel-pc:~/Documentos/platzi/devops$ docker run platzi npm test
+npm info it worked if it ends with ok
+npm info using npm@3.10.10
+npm info using node@v6.9.5
+npm info lifecycle platzi@1.0.0~pretest: platzi@1.0.0
+npm info lifecycle platzi@1.0.0~test: platzi@1.0.0
+
+> platzi@1.0.0 test /app
+> mocha
+
+
+
+  app
+    ✓ sould serve html on index
+
+
+  1 passing (41ms)
+
+npm info lifecycle platzi@1.0.0~posttest: platzi@1.0.0
+npm info ok 
+noel@noel-pc:~/Documentos/platzi/devops$
+
+
+
 
 
 
