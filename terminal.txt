@@ -334,7 +334,30 @@ noel@noel-pc:~/Documentos/platzi/devops$ cat public/index.html
 	  Hello Platzi 123  desde Docker!!!
   </body>
 </html>
+noel@noel-pc:~/Documentos/platzi/devops$ git add .
+noel@noel-pc:~/Documentos/platzi/devops$ git commit -m 'Add html change'
+[feacture_html_change 5a6f121] Add html change
+ 2 files changed, 28 insertions(+), 2 deletions(-)
+noel@noel-pc:~/Documentos/platzi/devops$ git push
+fatal: The current branch feacture_html_change has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin feacture_html_change
+
+noel@noel-pc:~/Documentos/platzi/devops$ git push --set-upstream origin feacture_html_change
+Username for 'https://github.com': enevaca
+Password for 'https://enevaca@github.com': 
+Counting objects: 5, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 810 bytes | 810.00 KiB/s, done.
+Total 5 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/enevaca/curso_dev_ops.git
+ * [new branch]      feacture_html_change -> feacture_html_change
+Branch feacture_html_change set up to track remote branch feacture_html_change from origin.
 noel@noel-pc:~/Documentos/platzi/devops$ 
+
 
 
 
