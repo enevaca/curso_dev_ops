@@ -308,7 +308,33 @@ echo "deploying..."
 URL=$(now --docker -t NOW_TOKEN)
 echo "running acceptance on $URL"
 curl --silent -L $URL
-noel@noel-pc:~/Documentos/platzi/devops/deployments$ 
+noel@noel-pc:~/Documentos/platzi/devops/deployments$ git add .
+noel@noel-pc:~/Documentos/platzi/devops/deployments$ git commit -am 'Add deploy qa'
+[master a4524b9] Add deploy qa
+ 3 files changed, 32 insertions(+)
+ create mode 100644 deployments/qa.sh
+noel@noel-pc:~/Documentos/platzi/devops/deployments$ git push
+
+
+noel@noel-pc:~/Documentos/platzi/devops/deployments$ git checkout -b 'feacture_html_change'
+M	terminal.txt
+Se ha cambiado a una rama nueva, «feacture_html_change»
+noel@noel-pc:~/Documentos/platzi/devops/deployments$ cd ..
+noel@noel-pc:~/Documentos/platzi/devops$ git branch -l
+* feacture_html_change
+  html-change
+  master
+noel@noel-pc:~/Documentos/platzi/devops$ nano public/index.html 
+noel@noel-pc:~/Documentos/platzi/devops$ cat public/index.html 
+<html>
+  <head>
+  	<title>Hola Amigos!</title>
+  </head>
+  <body>
+	  Hello Platzi 123  desde Docker!!!
+  </body>
+</html>
+noel@noel-pc:~/Documentos/platzi/devops$ 
 
 
 
