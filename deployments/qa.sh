@@ -1,4 +1,4 @@
-npm i -g --unsafe-perm now
+npm install -g now
 echo "deploying..."
 URL=$(now --docker -t NOW_TOKEN)
 echo "running acceptance on $URL"
