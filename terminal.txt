@@ -216,6 +216,91 @@ noel@noel-pc:~/Documentos/platzi/devops$ mkdir .circleci
 noel@noel-pc:~/Documentos/platzi/devops$ cd .circleci/
 noel@noel-pc:~/Documentos/platzi/devops/.circleci$ touch config.yml
 noel@noel-pc:~/Documentos/platzi/devops/.circleci$ vim config.yml 
+noel@noel-pc:~/Documentos/platzi/devops$ cat .circleci/config.yml 
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:7.10
+      
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+        
+      # run tests!
+      - run: yarn test
+noel@noel-pc:~/Documentos/platzi/devops$ 
+
+
+*****************************************************************************************************
+Now.sh
+noel@noel-pc:~/Documentos/platzi/devops$ sudo npm i -g --unsafe-perm now
+noel@noel-pc:~/Documentos/platzi/devops$ now login
+> We sent an email to noel.vm.2501@gmail.com. Please follow the steps provided
+  inside it and make sure the security code matches Calm Spectacled Bear.
+✔ Email confirmed
+✔ Fetched your personal details
+> Ready! Authentication token and personal details saved in "~/.now"
+
+noel@noel-pc:~/Documentos/platzi/devops$ now --docker
+> Deploying ~/Documentos/platzi/devops under noel.vm.2501@gmail.com
+> Ready! https://devops-fuplyokuhw.now.sh [8s]
+> You (noel.vm.2501@gmail.com) are on the OSS plan. Your code and logs will be made public.
+> NOTE: You can use `now --public` to skip this prompt
+> Synced 7 files (47.13KB) [11s] 
+> Initializing…
+> Building
+> 9c1bc3c30371: Pull complete
+> 33d67d70af20: Pull complete
+> 1ddfaaf1b6a6: Pull complete
+> e68bca313f9e: Pull complete
+> Digest: sha256:cf454b60ee452473f963f60ff18ba75b8e900174aae9bf0e8051e5a83db85b30
+> Status: Downloaded newer image for node:6.9
+>  ---> cde8ba396275
+> Step 2 : EXPOSE 3000
+>  ---> Running in dbea06bcb74e
+>  ---> d409b3dd89e6
+> Removing intermediate container dbea06bcb74e
+> Step 3 : WORKDIR /app
+>  ---> Running in 4b551cc1b53a
+>  ---> 5a17bde6819f
+> Removing intermediate container 4b551cc1b53a
+> Step 4 : ADD package.json /app/
+>  ---> 54f707e35c50
+> Removing intermediate container 4340d2d60e3b
+> Step 5 : RUN npm install -g mocha && npm install
+>  ---> Running in 184eac598668
+
+*************************************************************************************************************
+
+
+
+
 
 
 
