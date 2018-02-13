@@ -211,6 +211,13 @@ noel@noel-pc:~/Documentos/platzi/devops$
 
 
 
+************************************************************************************************************************
+noel@noel-pc:~/Documentos/platzi/devops$ mkdir .circleci
+noel@noel-pc:~/Documentos/platzi/devops$ cd .circleci/
+noel@noel-pc:~/Documentos/platzi/devops/.circleci$ touch config.yml
+noel@noel-pc:~/Documentos/platzi/devops/.circleci$ vim config.yml 
+
+
 
 
 
