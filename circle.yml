@@ -1,0 +1,24 @@
+machine:
+  node:
+    version: 6.1.0
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker build -t platzi .
+
+test:
+  override:
+    - docker run platzi npm test
+
+deployment:
+  qa:
+    branch: /feature_.*/
+    commands:
+      - sh deployments/qa.sh
+  prod:
+    branch: master
+    owner: elbuo8
+    commands:
+      - sh deployments/prod.sh
